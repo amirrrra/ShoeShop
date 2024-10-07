@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:store/core/utils/constants.dart';
 
 class HomeAppBarWidget extends StatelessWidget {
@@ -22,12 +21,7 @@ class HomeAppBarWidget extends StatelessWidget {
             fontWeight: FontWeight.w700,
             letterSpacing: 3,
           ),
-        ),
-        const Spacer(),
-        GestureDetector(
-          onTap: () {},
-          child: SvgPicture.asset(Constants().ksearch),
-        ),
+        ),        
       ],
     );
   }

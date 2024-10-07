@@ -29,3 +29,9 @@ flutter:
     - family: URW Geometric Med
       fonts:
         - asset: assets/fonts/URWGeometricMedium.otf
+    - family: URW Geometric SemBd
+      fonts:
+        - asset: assets/fonts/URWGeometricSemiBold.otf
+    - family: URW Geometric 
+      fonts:
+        - asset: assets/fonts/URWGeometricBold.otf
