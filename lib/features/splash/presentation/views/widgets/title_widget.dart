@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:store/core/utils/routes.dart';
 
 class TitleWidget extends StatefulWidget {
   const TitleWidget({super.key});
@@ -14,18 +16,8 @@ class _TitleWidgetState extends State<TitleWidget>
 
   @override
   void initState() {
-    controller = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 2),
-    );
-
-    animation = Tween<double>(begin: 0, end: 1).animate(controller);
-
-    Future.delayed(
-      const Duration(seconds: 4),
-      () => controller.forward(),
-    );
-
+    triggerFadeTransition();
+    toHome();
     super.initState();
   }
 
@@ -49,6 +41,27 @@ class _TitleWidgetState extends State<TitleWidget>
           ),
         ),
       ),
+    );
+  }
+
+  void triggerFadeTransition() {
+    controller = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 2),
+    );
+
+    animation = Tween<double>(begin: 0, end: 1).animate(controller);
+
+    Future.delayed(
+      const Duration(seconds: 3),
+      () => controller.forward(),
+    );
+  }
+
+  void toHome() {
+    Future.delayed(
+      const Duration(seconds: 5),
+      () => GoRouter.of(context).pushReplacement(Routes.kHome),
     );
   }
 }

@@ -8,28 +8,14 @@ class LogoWidget extends StatefulWidget {
   State<LogoWidget> createState() => _LogoWidgetState();
 }
 
-class _LogoWidgetState extends State<LogoWidget> with SingleTickerProviderStateMixin {
+class _LogoWidgetState extends State<LogoWidget>
+    with SingleTickerProviderStateMixin {
   late Animation<Alignment> animation;
   late AnimationController controller;
 
   @override
   void initState() {
-    controller = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 4),
-    );
-
-    var curvedAnimation = CurvedAnimation(
-      parent: controller,
-      curve: Curves.bounceOut,
-    );
-
-    animation = Tween<Alignment>(
-      begin: Alignment.bottomRight,
-      end: Alignment.topCenter,
-    ).animate(curvedAnimation);
-  
-    controller.forward();
+    triggerAlignTransition();
     super.initState();
   }
 
@@ -46,11 +32,30 @@ class _LogoWidgetState extends State<LogoWidget> with SingleTickerProviderStateM
         AlignTransition(
           alignment: animation,
           child: Image.asset(
-            Constants().logo,
+            Constants().kLogo,
             width: 135,
           ),
         ),
       ],
     );
+  }
+
+  void triggerAlignTransition() {
+    controller = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 3),
+    );
+
+    var curvedAnimation = CurvedAnimation(
+      parent: controller,
+      curve: Curves.bounceOut,
+    );
+
+    animation = Tween<Alignment>(
+      begin: Alignment.bottomRight,
+      end: Alignment.topCenter,
+    ).animate(curvedAnimation);
+
+    controller.forward();
   }
 }
