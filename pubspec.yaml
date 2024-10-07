@@ -25,7 +25,8 @@ flutter:
     - assets/pics/
 
   fonts:
-    - family: Open Sans Medium
+    - family: URW Geometric Med
       fonts:
-        - asset: assets/fonts/OpenSans-Medium.ttf
+        - asset: assets/fonts/URWGeometricMedium.otf
+
 

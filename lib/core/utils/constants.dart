@@ -1,4 +1,4 @@
 class Constants {
-  var logo = 'assets/pics/logo.jpg';
-  var sans = 'Open Sans Medium';
+  var logo = 'assets/pics/logo.png';
+  var sans = 'URW Geometric Med';
 }
