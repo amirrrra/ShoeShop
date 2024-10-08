@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:store/features/home/presentation/views/widgets/home_popular_widget.dart';
 import 'package:store/features/home/presentation/views/widgets/brand_gridview_widget.dart';
 import 'package:store/features/home/presentation/views/widgets/home_appbar_widget.dart';
 import 'package:store/features/home/presentation/views/widgets/home_offers_widget.dart';
@@ -13,18 +14,23 @@ class HomeView extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20),
-          child: Column(
-            children: [
-              SizedBox(height: 16),
-              HomeAppBarWidget(),
-              SizedBox(height: 20),
-              HomeSearchWidget(),
-              SizedBox(height: 8),
-              HomeOffersWidget(),
-              SizedBox(height: 20),
-              Expanded(
-                child: BrandGridviewWidget(),
+          child: CustomScrollView(
+            slivers: [
+              SliverToBoxAdapter(
+                child: Column(
+                  children: [
+                    SizedBox(height: 16),
+                    HomeAppBarWidget(),
+                    SizedBox(height: 20),
+                    HomeSearchWidget(),
+                    SizedBox(height: 8),
+                    HomeOffersWidget(),
+                    SizedBox(height: 20),
+                    BrandGridviewWidget(),
+                  ],
+                ),
               ),
+              SliverFillRemaining(child: HomePopularWidget()),
             ],
           ),
         ),

@@ -11,11 +11,13 @@ class BrandGridviewWidget extends StatefulWidget {
 }
 
 class _BrandGridviewWidgetState extends State<BrandGridviewWidget> {
-  bool flag = true;
+  bool flag = false;
 
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
       itemCount: flag ? getMoreBrands().length : getLessBrands().length,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 4,
@@ -51,7 +53,7 @@ class _BrandGridviewWidgetState extends State<BrandGridviewWidget> {
       ...BrandsData().brandSubList,
       BrandModel(
         name: BrandsData.less,
-        logo: BrandsData.moreLogo,
+        logo: BrandsData.lessLogo,
         onTap: () {
           setState(() {
             flag = false;

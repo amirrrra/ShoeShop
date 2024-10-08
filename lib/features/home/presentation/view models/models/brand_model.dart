@@ -18,9 +18,9 @@ class BrandsData {
   ];
   List<BrandModel> brandSubList = [
     BrandModel(name: asics, logo: asicsLogo),
-    BrandModel(name: newbalance, logo: newbalanceLogo),
-    BrandModel(name: vans, logo: vansLogo),
     BrandModel(name: lacoste, logo: lacosteLogo),
+    BrandModel(name: vans, logo: vansLogo),
+    BrandModel(name: newbalance, logo: newbalanceLogo),
     BrandModel(name: saucony, logo: sauconyLogo),
     BrandModel(name: champion, logo: championLogo),
     BrandModel(name: converse, logo: converseLogo),
@@ -31,7 +31,6 @@ class BrandsData {
   static const adidasLogo = '$path${'adidas.svg'}';
   static const asicsLogo = '$path${'asics.svg'}';
   static const converseLogo = '$path${'converse.svg'}';
-  static const moreLogo = '$path${'more.svg'}';
   static const newbalanceLogo = '$path${'newbalance.svg'}';
   static const nikeLogo = '$path${'nike.svg'}';
   static const lacosteLogo = '$path${'lacoste.svg'}';
@@ -44,6 +43,8 @@ class BrandsData {
   static const championLogo = '$path${'champion.svg'}';
   static const skechersLogo = '$path${'skechers.svg'}';
   static const filaLogo = '$path${'fila.svg'}';
+  static const moreLogo = '$path${'more.svg'}';
+  static const lessLogo = '$path${'less.svg'}';
 
   static const adidas = 'Adidas';
   static const asics = 'Asics';
@@ -61,5 +62,5 @@ class BrandsData {
   static const skechers = 'Skechers';
   static const fila = 'Fila';
   static const more = 'More ..';
-  static const less = 'Less ..';
+  static const less = '.. Less';
 }

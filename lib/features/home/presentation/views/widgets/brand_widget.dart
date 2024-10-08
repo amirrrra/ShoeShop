@@ -26,7 +26,9 @@ class BrandWidget extends StatelessWidget {
             child: Text(
               brandModel.name,
               style: const TextStyle(
-                  fontSize: 14, overflow: TextOverflow.ellipsis),
+                fontSize: 14,
+                overflow: TextOverflow.ellipsis,
+              ),
             ),
           ),
         ],
