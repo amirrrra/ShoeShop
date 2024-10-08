@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:store/features/home/presentation/views/widgets/brand_gridview_widget.dart';
 import 'package:store/features/home/presentation/views/widgets/home_appbar_widget.dart';
 import 'package:store/features/home/presentation/views/widgets/home_offers_widget.dart';
 import 'package:store/features/home/presentation/views/widgets/home_search_widget.dart';
@@ -8,7 +9,7 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  const Scaffold(
+    return const Scaffold(
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20),
@@ -20,6 +21,10 @@ class HomeView extends StatelessWidget {
               HomeSearchWidget(),
               SizedBox(height: 8),
               HomeOffersWidget(),
+              SizedBox(height: 20),
+              Expanded(
+                child: BrandGridviewWidget(),
+              ),
             ],
           ),
         ),
@@ -27,4 +32,3 @@ class HomeView extends StatelessWidget {
     );
   }
 }
-

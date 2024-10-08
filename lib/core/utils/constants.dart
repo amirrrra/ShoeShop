@@ -1,8 +1,8 @@
-class Constants {
-  var kLogo = 'assets/pics/logo.png';
-  var ksearch = 'assets/pics/search.svg';
-  var kFilter = 'assets/pics/filter.svg';
-  var kUrwMed = 'URW Geometric Med';
-  var kUrwSem = 'URW Geometric SemBd';
-  var kUrwBold = 'URW Geometric';
+abstract class Constants {
+  static const kLogo = 'assets/pics/logo.png';
+  static const ksearch = 'assets/pics/search.svg';
+  static const kFilter = 'assets/pics/filter.svg';
+  static const kUrwMed = 'URW Geometric Med';
+  static const kUrwSem = 'URW Geometric SemBd';
+  static const kUrwBold = 'URW Geometric';
 }

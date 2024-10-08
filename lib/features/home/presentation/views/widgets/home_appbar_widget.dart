@@ -11,7 +11,7 @@ class HomeAppBarWidget extends StatelessWidget {
     return Row(
       children: [
         Image.asset(
-          Constants().kLogo,
+          Constants.kLogo,
           width: 40,
         ),
         const Text(

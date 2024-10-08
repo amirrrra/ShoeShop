@@ -18,7 +18,7 @@ class ShoeShop extends StatelessWidget {
       theme: ThemeData(
         textTheme: TextTheme(
           bodyMedium: TextStyle(
-            fontFamily: Constants().kUrwMed,
+            fontFamily: Constants.kUrwBold,
           ),
         ),
       ),

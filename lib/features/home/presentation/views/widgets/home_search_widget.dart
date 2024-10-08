@@ -26,18 +26,18 @@ class HomeSearchWidget extends StatelessWidget {
           contentPadding: const EdgeInsets.symmetric(vertical: 16),
           enabledBorder: outlineInputBorder,
           focusedBorder: outlineInputBorder,
-          fillColor: ColorPalette.kFGrey,
+          fillColor: ColorPalette.kEGrey,
           filled: true,
           hintText: 'Search',
           hintStyle: TextStyle(
             color: Colors.grey.withOpacity(.5),
             fontSize: 17,
-            fontFamily: Constants().kUrwMed,
+            fontFamily: Constants.kUrwMed,
           ),
           prefixIcon: GestureDetector(
             onTap: () {},
             child: SvgPicture.asset(
-              Constants().ksearch,
+              Constants.ksearch,
               fit: BoxFit.scaleDown,
               colorFilter: ColorFilter.mode(
                 Colors.grey.withOpacity(.6),
@@ -48,7 +48,7 @@ class HomeSearchWidget extends StatelessWidget {
           suffixIcon: GestureDetector(
             onTap: () {},
             child: SvgPicture.asset(
-              Constants().kFilter,
+              Constants.kFilter,
               fit: BoxFit.scaleDown,
             ),
           ),

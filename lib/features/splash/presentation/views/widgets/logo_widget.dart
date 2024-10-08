@@ -32,7 +32,7 @@ class _LogoWidgetState extends State<LogoWidget>
         AlignTransition(
           alignment: animation,
           child: Image.asset(
-            Constants().kLogo,
+            Constants.kLogo,
             width: 135,
           ),
         ),
