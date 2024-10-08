@@ -16,7 +16,7 @@ class ShoeShop extends StatelessWidget {
       home: const HomeView(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        textTheme: TextTheme(
+        textTheme: const TextTheme(
           bodyMedium: TextStyle(
             fontFamily: Constants.kUrwBold,
           ),

@@ -1,28 +1,30 @@
 class BrandModel {
   final String name;
   final String logo;
+  final void Function()? onTap;
 
-  BrandModel({required this.name, required this.logo});
+  BrandModel({required this.name, required this.logo, this.onTap});
 }
 
-abstract class BrandsData {
-  static List<BrandModel> brandsList = [
+class BrandsData {
+  List<BrandModel> brandsBaseList = [
     BrandModel(name: nike, logo: nikeLogo),
+    BrandModel(name: fila, logo: filaLogo),
+    BrandModel(name: salomon, logo: salomonLogo),
     BrandModel(name: adidas, logo: adidasLogo),
+    BrandModel(name: skechers, logo: skechersLogo),
     BrandModel(name: jordan, logo: jordanLogo),
     BrandModel(name: puma, logo: pumaLogo),
-    BrandModel(name: champion, logo: championLogo),
-    BrandModel(name: converse, logo: converseLogo),
-    BrandModel(name: skechers, logo: skechersLogo),
-    BrandModel(name: newbalance, logo: newbalanceLogo),
-    BrandModel(name: fila, logo: filaLogo),
-    BrandModel(name: vans, logo: vansLogo),
+  ];
+  List<BrandModel> brandSubList = [
     BrandModel(name: asics, logo: asicsLogo),
+    BrandModel(name: newbalance, logo: newbalanceLogo),
+    BrandModel(name: vans, logo: vansLogo),
     BrandModel(name: lacoste, logo: lacosteLogo),
     BrandModel(name: saucony, logo: sauconyLogo),
-    BrandModel(name: salomon, logo: salomonLogo),
+    BrandModel(name: champion, logo: championLogo),
+    BrandModel(name: converse, logo: converseLogo),
     BrandModel(name: reebok, logo: reebokLogo),
-    BrandModel(name: more, logo: moreLogo),
   ];
 
   static const path = 'assets/brands/';
@@ -46,7 +48,6 @@ abstract class BrandsData {
   static const adidas = 'Adidas';
   static const asics = 'Asics';
   static const converse = 'Converse';
-  static const more = 'More ..';
   static const newbalance = 'New Balance';
   static const nike = 'Nike';
   static const lacoste = 'Lacoste';
@@ -59,4 +60,6 @@ abstract class BrandsData {
   static const champion = 'Champion';
   static const skechers = 'Skechers';
   static const fila = 'Fila';
+  static const more = 'More ..';
+  static const less = 'Less ..';
 }

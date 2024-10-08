@@ -9,24 +9,28 @@ class BrandWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CircleAvatar(
-          radius: 28,
-          backgroundColor: ColorPalette.kEGrey,
-          child: Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: SvgPicture.asset(brandModel.logo),
+    return GestureDetector(
+      onTap: brandModel.onTap,
+      child: Column(
+        children: [
+          CircleAvatar(
+            radius: 28,
+            backgroundColor: ColorPalette.kEGrey,
+            child: Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: SvgPicture.asset(brandModel.logo),
+            ),
           ),
-        ),
-        const SizedBox(height: 8),
-        Flexible(
-          child: Text(
-            brandModel.name,
-            style: const TextStyle(fontSize: 14,overflow: TextOverflow.ellipsis),
+          const SizedBox(height: 8),
+          Flexible(
+            child: Text(
+              brandModel.name,
+              style: const TextStyle(
+                  fontSize: 14, overflow: TextOverflow.ellipsis),
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

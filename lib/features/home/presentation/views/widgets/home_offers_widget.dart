@@ -9,7 +9,7 @@ class HomeOffersWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
+        const Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
@@ -22,7 +22,7 @@ class HomeOffersWidget extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(height: 20),
+        const SizedBox(height: 16),
         Container(
           padding: const EdgeInsets.only(left: 25, top: 25, bottom: 25),
           height: 136,
@@ -36,7 +36,7 @@ class HomeOffersWidget extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     '25%',
                     style: Styles.style36Bold,
                   ),
