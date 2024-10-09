@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:store/features/home/presentation/view%20models/models/brand_model.dart';
+import 'package:store/features/home/data/models/brand_model.dart';
 import 'package:store/features/home/presentation/views/widgets/brand_widget.dart';
 
 class BrandGridviewWidget extends StatefulWidget {

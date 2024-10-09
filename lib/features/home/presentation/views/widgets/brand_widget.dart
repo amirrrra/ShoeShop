@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:store/core/utils/color_palette.dart';
-import 'package:store/features/home/presentation/view%20models/models/brand_model.dart';
+import 'package:store/features/home/data/models/brand_model.dart';
 
 class BrandWidget extends StatelessWidget {
   final BrandModel brandModel;
