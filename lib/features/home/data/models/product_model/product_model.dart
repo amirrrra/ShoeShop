@@ -1,87 +1,47 @@
 import 'offer.dart';
-import 'product_variant_properties.dart';
-import 'product_variants.dart';
 
 class ProductModel {
-  String? productId;
-  String? productTitle;
-  String? productDescription;
-  List<String>? productPhotos;
-  double? productRating;
-  String? productPageUrl;
-  String? productOffersPageUrl;
-  String? productSpecsPageUrl;
-  String? productReviewsPageUrl;
-  String? productPageUrlV2;
-  int? productNumReviews;
-  String? productNumOffers;
-  List<String>? typicalPriceRange;
-  ProductVariantProperties? productVariantProperties;
-  ProductVariants? productVariants;
-  Offer? offer;
+  final String? id;
+  final String? title;
+  final String? description;
+  final String? photo;
+  final double? rating;
+  final String? url;
+  final int? reviews;
+  final Offer? offer;
 
   ProductModel({
-    this.productId,
-    this.productTitle,
-    this.productDescription,
-    this.productPhotos,
-    this.productRating,
-    this.productPageUrl,
-    this.productOffersPageUrl,
-    this.productSpecsPageUrl,
-    this.productReviewsPageUrl,
-    this.productPageUrlV2,
-    this.productNumReviews,
-    this.productNumOffers,
-    this.typicalPriceRange,
-    this.productVariantProperties,
-    this.productVariants,
-    this.offer,
+    required this.id,
+    required this.title,
+    required this.description,
+    required this.photo,
+    required this.rating,
+    required this.url,
+    required this.reviews,
+    required this.offer,
   });
 
   factory ProductModel.fromJson(Map<String, dynamic> json) => ProductModel(
-        productId: json['product_id'] as String?,
-        productTitle: json['product_title'] as String?,
-        productDescription: json['product_description'] as String?,
-        productPhotos: json['product_photos'] as List<String>?,
-        productRating: (json['product_rating'] as num?)?.toDouble(),
-        productPageUrl: json['product_page_url'] as String?,
-        productOffersPageUrl: json['product_offers_page_url'] as String?,
-        productSpecsPageUrl: json['product_specs_page_url'] as String?,
-        productReviewsPageUrl: json['product_reviews_page_url'] as String?,
-        productPageUrlV2: json['product_page_url_v2'] as String?,
-        productNumReviews: json['product_num_reviews'] as int?,
-        productNumOffers: json['product_num_offers'] as String?,
-        typicalPriceRange: json['typical_price_range'] as List<String>?,
-        productVariantProperties: json['product_variant_properties'] == null
-            ? null
-            : ProductVariantProperties.fromJson(
-                json['product_variant_properties'] as Map<String, dynamic>),
-        productVariants: json['product_variants'] == null
-            ? null
-            : ProductVariants.fromJson(
-                json['product_variants'] as Map<String, dynamic>),
-        offer: json['offer'] == null
-            ? null
-            : Offer.fromJson(json['offer'] as Map<String, dynamic>),
+        id: json['product_id'],
+        title: json['product_title'],
+        description: json['product_description'],
+        photo: json['product_photos'][0],
+        rating: json['product_rating'],
+        url: json['product_page_url'],
+        reviews: json['product_num_reviews'],
+        offer: json['offer'] == null ? null : Offer.fromJson(json['offer']),
+
+        // productRating: (json['product_rating'] as num?)?.toDouble(),
       );
 
   Map<String, dynamic> toJson() => {
-        'product_id': productId,
-        'product_title': productTitle,
-        'product_description': productDescription,
-        'product_photos': productPhotos,
-        'product_rating': productRating,
-        'product_page_url': productPageUrl,
-        'product_offers_page_url': productOffersPageUrl,
-        'product_specs_page_url': productSpecsPageUrl,
-        'product_reviews_page_url': productReviewsPageUrl,
-        'product_page_url_v2': productPageUrlV2,
-        'product_num_reviews': productNumReviews,
-        'product_num_offers': productNumOffers,
-        'typical_price_range': typicalPriceRange,
-        'product_variant_properties': productVariantProperties?.toJson(),
-        'product_variants': productVariants?.toJson(),
+        'product_id': id,
+        'product_title': title,
+        'product_description'[0]: description,
+        'product_photos': photo,
+        'product_rating': rating,
+        'product_page_url': url,
+        'product_num_reviews': reviews,
         'offer': offer?.toJson(),
       };
 }

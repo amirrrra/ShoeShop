@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:store/core/utils/constants.dart';
-import 'package:store/features/home/presentation/views/home_view.dart';
+import 'package:store/core/utils/routes.dart';
 
-void main() {
+void main() async {
+  await dotenv.load(fileName: ".env");
   runApp(const ShoeShop());
 }
 
@@ -11,9 +13,9 @@ class ShoeShop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      // routerConfig: Routes().routes,
-      home: const HomeView(),
+    return MaterialApp.router(
+      routerConfig: Routes().routes,
+      // home: const HomeView(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         textTheme: const TextTheme(

@@ -23,7 +23,7 @@ class ProductWidget extends StatelessWidget {
         const SizedBox(height: 6),
         const Text(
           'K-Swiss Vista Train...',
-          style: Styles.style18Bold,
+          style: Styles.style18,
         ),
         const SizedBox(height: 4),
         Row(
@@ -45,7 +45,7 @@ class ProductWidget extends StatelessWidget {
         const SizedBox(height: 4),
         const Text(
           r'$70.00',
-          style: Styles.style18Bold,
+          style: Styles.style18,
         ),
       ],
     );

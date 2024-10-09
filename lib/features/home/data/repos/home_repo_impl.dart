@@ -12,11 +12,9 @@ class HomeRepoImpl extends HomeRepo {
     try {
       var data = await ApiService().get(category);
       List<ProductModel> productsList = [];
-
       for (var item in data['data']['products']) {
         productsList.add(ProductModel.fromJson(item));
       }
-
       return right(productsList);
     } catch (e) {
       return left(

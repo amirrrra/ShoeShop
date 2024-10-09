@@ -25,11 +25,11 @@ class OfferWidget extends StatelessWidget {
             children: [
               const Text(
                 '25%',
-                style: Styles.style36Bold,
+                style: Styles.style36,
               ),
               Text(
                 "Today's Special!",
-                style: Styles.style20Bold.copyWith(
+                style: Styles.style20.copyWith(
                   color: ColorPalette.kWhite,
                 ),
               ),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store/core/utils/color_palette.dart';
 import 'package:store/features/home/data/models/brand_model.dart';
+import 'package:store/features/home/presentation/view%20models/cubits/product_cubit.dart';
 
 class HomeTabbarWidget extends StatefulWidget {
   const HomeTabbarWidget({super.key});
@@ -31,6 +33,10 @@ class HomeTabbarWidgetState extends State<HomeTabbarWidget> {
   }
 
   onTap(int index) {
+    BlocProvider.of<ProductCubit>(context).getProducts(
+      HomeTabbarWidgetState().categories[index],
+    );
+
     setState(() {
       selectedIndex = index;
     });

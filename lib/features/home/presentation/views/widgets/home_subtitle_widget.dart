@@ -16,11 +16,11 @@ class HomeSubTitleWidget extends StatelessWidget {
       children: [
         Text(
           baseTitle,
-          style: Styles.style20Bold,
+          style: Styles.style20,
         ),
         const Text(
           'See All',
-          style: Styles.style16Bold,
+          style: Styles.style16,
         ),
       ],
     );
