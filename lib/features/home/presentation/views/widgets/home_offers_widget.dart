@@ -10,7 +10,7 @@ class HomeOffersWidget extends StatelessWidget {
     return const Column(
       children: [
         HomeSubTitleWidget(baseTitle: 'Special Offers'),
-        SizedBox(height: 16),
+        SizedBox(height: 12),
         OfferWidget(),
       ],
     );

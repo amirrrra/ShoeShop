@@ -4,7 +4,7 @@ import 'package:store/features/home/presentation/views/widgets/home_appbar_widge
 import 'package:store/features/home/presentation/views/widgets/home_offers_widget.dart';
 import 'package:store/features/home/presentation/views/widgets/home_popular_widget.dart';
 import 'package:store/features/home/presentation/views/widgets/home_search_widget.dart';
-import 'package:store/features/home/presentation/views/widgets/product_grid_widget.dart';
+import 'package:store/features/home/presentation/views/widgets/home_tabviews_widget.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -15,26 +15,27 @@ class HomeView extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: CustomScrollView(
-            physics: const BouncingScrollPhysics(),
-            slivers: [
-              SliverList(
-                delegate: SliverChildListDelegate(
-                  [
-                    const SizedBox(height: 16),
-                    const HomeAppBarWidget(),
-                    const SizedBox(height: 20),
-                    const HomeSearchWidget(),
-                    const SizedBox(height: 8),
-                    const HomeOffersWidget(),
-                    const SizedBox(height: 20),
-                    const BrandGridviewWidget(),
-                    const HomePopularWidget(),
-                  ],
+          child: NestedScrollView(
+            headerSliverBuilder: (context, isScrolled) {
+              return [
+                const SliverToBoxAdapter(
+                  child: Column(
+                    children: [
+                      SizedBox(height: 16),
+                      HomeAppBarWidget(),
+                      SizedBox(height: 12),
+                      HomeSearchWidget(),
+                      SizedBox(height: 4),
+                      HomeOffersWidget(),
+                      SizedBox(height: 20),
+                      BrandGridviewWidget(),
+                      HomePopularWidget(),
+                    ],
+                  ),
                 ),
-              ),
-              const ProductGridviewWidget(),
-            ],
+              ];
+            },
+            body: const HomeTabviewsWidget(),
           ),
         ),
       ),

@@ -7,13 +7,16 @@ class HomePopularWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      children: [
-        HomeSubTitleWidget(baseTitle: 'Most Popular'),
-        SizedBox(height: 12),
-        HomeTabbarWidget(),
-        SizedBox(height: 16),
-      ],
+    return DefaultTabController(
+      length: HomeTabbarWidgetState().categories.length,
+      child: const Column(
+        children: [
+          HomeSubTitleWidget(baseTitle: 'Most Popular'),
+          SizedBox(height: 12),
+          HomeTabbarWidget(),
+          SizedBox(height: 16),
+        ],
+      ),
     );
   }
 }

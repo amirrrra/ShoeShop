@@ -2,12 +2,42 @@ import 'package:flutter/material.dart';
 import 'package:store/core/utils/color_palette.dart';
 import 'package:store/features/home/presentation/view%20models/models/brand_model.dart';
 
-class HomeTabbarWidget extends StatelessWidget {
+class HomeTabbarWidget extends StatefulWidget {
   const HomeTabbarWidget({super.key});
 
   @override
+  State<HomeTabbarWidget> createState() => HomeTabbarWidgetState();
+}
+
+class HomeTabbarWidgetState extends State<HomeTabbarWidget> {
+  int selectedIndex = 0;
+
+  @override
   Widget build(BuildContext context) {
-    final List<String> categories = [
+    return TabBar(
+      tabs: getTabs(),
+      onTap: (index) {
+        onTap(index);
+      },
+      isScrollable: true,
+      tabAlignment: TabAlignment.start,
+      labelPadding: const EdgeInsets.only(right: 12),
+      labelColor: ColorPalette.kWhite,
+      unselectedLabelColor: ColorPalette.kBlack,
+      indicatorColor: ColorPalette.kTransparent,
+      overlayColor: WidgetStateProperty.all(ColorPalette.kTransparent),
+      dividerColor: Colors.transparent,
+    );
+  }
+
+  onTap(int index) {
+    setState(() {
+      selectedIndex = index;
+    });
+  }
+
+  List<String> get categories {
+    return [
       BrandsData.nike,
       BrandsData.adidas,
       BrandsData.jordan,
@@ -21,36 +51,24 @@ class HomeTabbarWidget extends StatelessWidget {
       BrandsData.vans,
       BrandsData.asics,
     ];
+  }
 
-    final tabs = categories
-        .map(
-          (item) => Container(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            decoration: BoxDecoration(
-              border: Border.all(width: 1.6),
-              borderRadius: const BorderRadius.all(Radius.circular(16)),
-            ),
-            child: Tab(
-              text: item,
-              height: 30,
-            ),
-          ),
-        )
-        .toList();
-
-    return DefaultTabController(
-      length: categories.length,
-      child: TabBar(
-        tabs: tabs,
-        isScrollable: true,
-        tabAlignment: TabAlignment.start,
-        labelPadding: const EdgeInsets.only(right: 12),
-        // labelColor: ColorPalette.kWhite,
-        unselectedLabelColor: ColorPalette.kBlack,
-        indicatorColor: ColorPalette.kTransparent,
-        overlayColor: WidgetStateProperty.all(ColorPalette.kTransparent),
-        dividerColor: Colors.transparent,
-      ),
-    );
+  List<Widget> getTabs() {
+    return List.generate(categories.length, (index) {
+      return Container(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        decoration: BoxDecoration(
+          color: selectedIndex == index
+              ? ColorPalette.kBlack
+              : ColorPalette.kTransparent,
+          border: Border.all(width: 1.6),
+          borderRadius: const BorderRadius.all(Radius.circular(16)),
+        ),
+        child: Tab(
+          text: categories[index],
+          height: 30,
+        ),
+      );
+    });
   }
 }
