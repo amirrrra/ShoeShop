@@ -16,14 +16,9 @@ class ProductWidget extends StatelessWidget {
           padding: const EdgeInsets.all(16),
           decoration: const BoxDecoration(
             color: ColorPalette.kFGrey,
-            borderRadius: BorderRadius.all(
-              Radius.circular(28),
-            ),
+            borderRadius: BorderRadius.all(Radius.circular(28)),
           ),
-          child: Image.asset(
-            Constants.kShoe,
-            width: 120,
-          ),
+          child: Image.asset(Constants.kShoe),
         ),
         const SizedBox(height: 6),
         const Text(
@@ -33,7 +28,10 @@ class ProductWidget extends StatelessWidget {
         const SizedBox(height: 4),
         Row(
           children: [
-            SvgPicture.asset(Constants.kStar),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 4),
+              child: SvgPicture.asset(Constants.kStar),
+            ),
             const SizedBox(width: 4),
             const Text(
               '4.5  (6,573 reviews)',
