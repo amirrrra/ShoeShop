@@ -15,6 +15,12 @@ class HomeTabbarWidgetState extends State<HomeTabbarWidget> {
   int selectedIndex = 0;
 
   @override
+  void initState() {
+    onTap(0);
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return TabBar(
       tabs: getTabs(),
