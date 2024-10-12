@@ -50,12 +50,11 @@ class HomeTabbarWidgetState extends State<HomeTabbarWidget> {
 
   List<String> get categories {
     return [
-      BrandsData.nike,
       BrandsData.adidas,
+      BrandsData.nike,
       BrandsData.jordan,
       BrandsData.puma,
       BrandsData.reebok,
-      BrandsData.champion,
       BrandsData.converse,
       BrandsData.skechers,
       BrandsData.newbalance,

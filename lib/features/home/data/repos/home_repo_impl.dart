@@ -15,9 +15,12 @@ class HomeRepoImpl extends HomeRepo {
       List<ProductModel> productsList = [];
       for (var item in data['data']['products']) {
         productsList.add(ProductModel.fromJson(item));
+        print(ProductModel.fromJson(item).title);
       }
       return right(productsList);
     } catch (e) {
+      // Handle the failure case
+      print('Failed to fetch products: $e');
       if (e is DioException) {
         return left(
           ServerFailure.fromDioError(e),

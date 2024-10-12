@@ -1,10 +1,10 @@
 import 'offer.dart';
 
 class ProductModel {
-  final String? id;
-  final String? title;
+  final String id;
+  final String title;
   final String? description;
-  final String? photo;
+  final String photo;
   final double? rating;
   final String? url;
   final int? reviews;
@@ -26,7 +26,7 @@ class ProductModel {
         title: json['product_title'],
         description: json['product_description'],
         photo: json['product_photos'][0],
-        rating: json['product_rating'],
+        rating: (json['product_rating'] as num?)?.toDouble(),
         url: json['product_page_url'],
         reviews: json['product_num_reviews'],
         offer: json['offer'] == null ? null : Offer.fromJson(json['offer']),

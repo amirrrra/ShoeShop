@@ -24,7 +24,9 @@ class ProductGridWidget extends StatelessWidget {
               childAspectRatio: 1,
             ),
             itemBuilder: (BuildContext context, int index) {
-              return const ProductWidget();
+              return ProductWidget(
+                productModel: state.productList[index],
+              );
             },
           );
         } else if (state is ProductFailureState) {

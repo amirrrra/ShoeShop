@@ -22,7 +22,6 @@ class BrandsData {
     BrandModel(name: vans, logo: vansLogo),
     BrandModel(name: newbalance, logo: newbalanceLogo),
     BrandModel(name: saucony, logo: sauconyLogo),
-    BrandModel(name: champion, logo: championLogo),
     BrandModel(name: converse, logo: converseLogo),
     BrandModel(name: reebok, logo: reebokLogo),
   ];
@@ -40,7 +39,6 @@ class BrandsData {
   static const salomonLogo = '$path${'salomon.svg'}';
   static const sauconyLogo = '$path${'saucony.svg'}';
   static const jordanLogo = '$path${'jordan.svg'}';
-  static const championLogo = '$path${'champion.svg'}';
   static const skechersLogo = '$path${'skechers.svg'}';
   static const filaLogo = '$path${'fila.svg'}';
   static const moreLogo = '$path${'more.svg'}';
@@ -58,7 +56,6 @@ class BrandsData {
   static const salomon = 'Salomon';
   static const saucony = 'Saucony';
   static const jordan = 'Jordan';
-  static const champion = 'Champion';
   static const skechers = 'Skechers';
   static const fila = 'Fila';
   static const more = 'More ..';

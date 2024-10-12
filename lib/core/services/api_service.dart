@@ -16,7 +16,10 @@ class ApiService {
         },
       ),
     );
-
-    return response.data;
+    if (response.statusCode == 200) {
+      return response.data;
+    } else {
+      throw Exception("Error occurred with response ${response.statusCode}");
+    }
   }
 }
