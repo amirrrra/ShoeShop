@@ -4,14 +4,14 @@ import 'package:store/core/utils/color_palette.dart';
 import 'package:store/features/home/data/models/brand_model.dart';
 import 'package:store/features/home/presentation/view%20models/cubits/product_cubit.dart';
 
-class HomeTabbarWidget extends StatefulWidget {
-  const HomeTabbarWidget({super.key});
+class TabbarWidget extends StatefulWidget {
+  const TabbarWidget({super.key});
 
   @override
-  State<HomeTabbarWidget> createState() => HomeTabbarWidgetState();
+  State<TabbarWidget> createState() => TabbarWidgetState();
 }
 
-class HomeTabbarWidgetState extends State<HomeTabbarWidget> {
+class TabbarWidgetState extends State<TabbarWidget> {
   int selectedIndex = 0;
 
   @override
@@ -22,19 +22,25 @@ class HomeTabbarWidgetState extends State<HomeTabbarWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return TabBar(
-      tabs: getTabs(),
-      onTap: (index) {
-        onTap(index);
-      },
-      isScrollable: true,
-      tabAlignment: TabAlignment.start,
-      labelPadding: const EdgeInsets.only(right: 12),
-      labelColor: ColorPalette.kWhite,
-      unselectedLabelColor: ColorPalette.kBlack,
-      indicatorColor: ColorPalette.kTransparent,
-      overlayColor: WidgetStateProperty.all(ColorPalette.kTransparent),
-      dividerColor: Colors.transparent,
+    return Padding(
+      padding: const EdgeInsets.only(left: 20),
+      child: DefaultTabController(
+        length: TabbarWidgetState().categories.length,
+        child: TabBar(
+          tabs: getTabs(),
+          onTap: (index) {
+            onTap(index);
+          },
+          isScrollable: true,
+          tabAlignment: TabAlignment.start,
+          labelPadding: const EdgeInsets.only(right: 12),
+          labelColor: ColorPalette.kWhite,
+          unselectedLabelColor: ColorPalette.kBlack,
+          indicatorColor: ColorPalette.kTransparent,
+          overlayColor: WidgetStateProperty.all(ColorPalette.kTransparent),
+          dividerColor: Colors.transparent,
+        ),
+      ),
     );
   }
 

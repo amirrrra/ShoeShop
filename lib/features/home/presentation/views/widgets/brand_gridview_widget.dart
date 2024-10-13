@@ -34,7 +34,7 @@ class _BrandGridviewWidgetState extends State<BrandGridviewWidget> {
 
   List<BrandModel> getLessBrands() {
     return [
-      ...BrandsData().brandsBaseList,
+      ...BrandsData().brandsBaseList(context),
       BrandModel(
         name: BrandsData.more,
         logo: BrandsData.moreLogo,
@@ -49,8 +49,8 @@ class _BrandGridviewWidgetState extends State<BrandGridviewWidget> {
 
   List<BrandModel> getMoreBrands() {
     return [
-      ...BrandsData().brandsBaseList,
-      ...BrandsData().brandSubList,
+      ...BrandsData().brandsBaseList(context),
+      ...BrandsData().brandSubList(context),
       BrandModel(
         name: BrandsData.less,
         logo: BrandsData.lessLogo,

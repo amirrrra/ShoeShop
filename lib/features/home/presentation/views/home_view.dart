@@ -4,7 +4,7 @@ import 'package:store/features/home/presentation/views/widgets/home_appbar_widge
 import 'package:store/features/home/presentation/views/widgets/home_offers_widget.dart';
 import 'package:store/features/home/presentation/views/widgets/home_popular_widget.dart';
 import 'package:store/features/home/presentation/views/widgets/home_search_widget.dart';
-import 'package:store/features/home/presentation/views/widgets/home_tabviews_widget.dart';
+import 'package:store/features/home/presentation/views/widgets/tabviews_widget.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -13,12 +13,12 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: NestedScrollView(
-            headerSliverBuilder: (context, isScrolled) {
-              return [
-                const SliverToBoxAdapter(
+        child: NestedScrollView(
+          headerSliverBuilder: (context, isScrolled) {
+            return [
+              const SliverToBoxAdapter(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
                   child: Column(
                     children: [
                       SizedBox(height: 16),
@@ -29,14 +29,14 @@ class HomeView extends StatelessWidget {
                       HomeOffersWidget(),
                       SizedBox(height: 20),
                       BrandGridviewWidget(),
-                      HomePopularWidget(),
                     ],
                   ),
                 ),
-              ];
-            },
-            body: const HomeTabviewsWidget(),
-          ),
+              ),
+              const SliverToBoxAdapter(child:  HomePopularWidget()),
+            ];
+          },
+          body: const TabviewsWidget(),
         ),
       ),
     );

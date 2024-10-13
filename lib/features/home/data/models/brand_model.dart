@@ -1,3 +1,7 @@
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:store/core/utils/routes.dart';
+
 class BrandModel {
   final String name;
   final String logo;
@@ -7,24 +11,31 @@ class BrandModel {
 }
 
 class BrandsData {
-  List<BrandModel> brandsBaseList = [
-    BrandModel(name: nike, logo: nikeLogo),
-    BrandModel(name: fila, logo: filaLogo),
-    BrandModel(name: salomon, logo: salomonLogo),
-    BrandModel(name: adidas, logo: adidasLogo),
-    BrandModel(name: skechers, logo: skechersLogo),
-    BrandModel(name: jordan, logo: jordanLogo),
-    BrandModel(name: puma, logo: pumaLogo),
-  ];
-  List<BrandModel> brandSubList = [
-    BrandModel(name: asics, logo: asicsLogo),
-    BrandModel(name: lacoste, logo: lacosteLogo),
-    BrandModel(name: vans, logo: vansLogo),
-    BrandModel(name: newbalance, logo: newbalanceLogo),
-    BrandModel(name: saucony, logo: sauconyLogo),
-    BrandModel(name: converse, logo: converseLogo),
-    BrandModel(name: reebok, logo: reebokLogo),
-  ];
+  List<BrandModel> brandsBaseList(BuildContext context) {
+    onTap() => GoRouter.of(context).push(Routes.kBrand);
+    return [
+      BrandModel(name: nike, logo: nikeLogo, onTap: () => onTap()),
+      BrandModel(name: fila, logo: filaLogo, onTap: () => onTap()),
+      BrandModel(name: salomon, logo: salomonLogo, onTap: () => onTap()),
+      BrandModel(name: adidas, logo: adidasLogo, onTap: () => onTap()),
+      BrandModel(name: skechers, logo: skechersLogo, onTap: () => onTap()),
+      BrandModel(name: jordan, logo: jordanLogo, onTap: () => onTap()),
+      BrandModel(name: puma, logo: pumaLogo, onTap: () => onTap()),
+    ];
+  }
+
+  List<BrandModel> brandSubList(BuildContext context) {
+    onTap() => GoRouter.of(context).push(Routes.kBrand);
+    return [
+      BrandModel(name: asics, logo: asicsLogo, onTap: () => onTap()),
+      BrandModel(name: lacoste, logo: lacosteLogo, onTap: () => onTap()),
+      BrandModel(name: vans, logo: vansLogo, onTap: () => onTap()),
+      BrandModel(name: newbalance, logo: newbalanceLogo, onTap: () => onTap()),
+      BrandModel(name: saucony, logo: sauconyLogo, onTap: () => onTap()),
+      BrandModel(name: converse, logo: converseLogo, onTap: () => onTap()),
+      BrandModel(name: reebok, logo: reebokLogo, onTap: () => onTap()),
+    ];
+  }
 
   static const path = 'assets/brands/';
   static const adidasLogo = '$path${'adidas.svg'}';

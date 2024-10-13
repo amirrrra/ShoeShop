@@ -3,11 +3,13 @@ import 'package:flutter_svg/svg.dart';
 import 'package:store/core/utils/color_palette.dart';
 import 'package:store/core/utils/constants.dart';
 import 'package:store/core/utils/styles.dart';
-import 'package:store/features/home/data/models/product_model/product_model.dart';
 
 class ProductWidget extends StatelessWidget {
-  final ProductModel productModel;
-  const ProductWidget({super.key, required this.productModel});
+  // final ProductModel productModel;
+  const ProductWidget({
+    super.key,
+    // required this.productModel,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -20,17 +22,17 @@ class ProductWidget extends StatelessWidget {
             color: ColorPalette.kFGrey,
             borderRadius: BorderRadius.all(Radius.circular(28)),
           ),
-          child: Image.network(
-            productModel.photo,
-            width: 120,
-            height: 120,
+          child: Image.asset(
+            Constants.kShoe,
+            width: 160,
+            height: 130,
           ),
         ),
         const SizedBox(height: 6),
-        Text(
-          productModel.title,
+        const Text(
+          'Running Sportwear',
           style: Styles.style18,
-          maxLines: 2,
+          maxLines: 1,
           overflow: TextOverflow.ellipsis,
         ),
         const SizedBox(height: 4),
@@ -41,10 +43,11 @@ class ProductWidget extends StatelessWidget {
               child: SvgPicture.asset(Constants.kStar),
             ),
             const SizedBox(width: 4),
-            Text(
-              '${(productModel.rating ?? 0).toString()}'
-              '  (${productModel.reviews ?? 0} reviews)',
-              style: const TextStyle(
+            const Text(
+              // '${(productModel.rating ?? 0).toString()}'
+              // '  (${productModel.reviews ?? 0} reviews)',
+              '4.7 (7424 reviews)',
+              style: TextStyle(
                 color: ColorPalette.kGrey7,
                 fontFamily: Constants.kUrwMed,
               ),
@@ -52,8 +55,9 @@ class ProductWidget extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 4),
-        Text(
-          '${productModel.offer?.originalPrice ?? r'$0'}',
+        const Text(
+          // '${productModel.offer?.originalPrice ?? r'$0'}',
+          r'$120',
           style: Styles.style18,
         ),
       ],
