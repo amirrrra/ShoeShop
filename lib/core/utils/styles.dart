@@ -5,6 +5,9 @@ class Styles {
   static const style20 = TextStyle(
     fontSize: 20,
   );
+  static const style24 = TextStyle(
+    fontSize: 24,
+  );
   static const style16 = TextStyle(
     fontSize: 16,
   );

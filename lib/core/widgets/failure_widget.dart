@@ -25,12 +25,10 @@ class FailureWidget extends StatelessWidget {
               const SizedBox(
                 width: 5,
               ),
-              Expanded(
-                child: Text(
-                  errMessage,
-                  style: Styles.style16,
-                  maxLines: 4,
-                ),
+              Text(
+                errMessage,
+                style: Styles.style16,
+                maxLines: 4,
               ),
               const SizedBox(width: 10,)
             ],

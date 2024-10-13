@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:store/core/utils/styles.dart';
 
 class HomeSubTitleWidget extends StatelessWidget {
+  final void Function()? onTap;
   final String baseTitle;
 
   const HomeSubTitleWidget({
     super.key,
     required this.baseTitle,
+    this.onTap,
   });
 
   @override
@@ -18,9 +20,12 @@ class HomeSubTitleWidget extends StatelessWidget {
           baseTitle,
           style: Styles.style20,
         ),
-        const Text(
-          'See All',
-          style: Styles.style16,
+        GestureDetector(
+          onTap: onTap,
+          child: const Text(
+            'See All',
+            style: Styles.style16,
+          ),
         ),
       ],
     );
