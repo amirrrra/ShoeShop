@@ -13,23 +13,29 @@ class FailureWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30),
-      child: Row(
-        children: [
-          const Icon(
-            Icons.warning_rounded,
-            color: ColorPalette.kRedLogo,
+      child: SizedBox(
+        height: 136,
+        child: Center(
+          child: Wrap(
+            children: [
+              const Icon(
+                Icons.warning_rounded,
+                color: ColorPalette.kRedLogo,
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              Expanded(
+                child: Text(
+                  errMessage,
+                  style: Styles.style16,
+                  maxLines: 4,
+                ),
+              ),
+              const SizedBox(width: 10,)
+            ],
           ),
-          const SizedBox(
-            width: 5,
-          ),
-          Expanded(
-            child: Text(
-              errMessage,
-              style: Styles.style16,
-              maxLines: 4,
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }

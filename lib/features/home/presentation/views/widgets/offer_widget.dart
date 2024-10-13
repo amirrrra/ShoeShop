@@ -1,15 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store/core/utils/color_palette.dart';
-import 'package:store/core/utils/constants.dart';
 import 'package:store/core/utils/styles.dart';
+import 'package:store/features/home/data/models/product_model/product_model.dart';
+import 'package:store/features/home/presentation/view%20models/cubits/product_cubit.dart';
 
-class OfferWidget extends StatelessWidget {
+class OfferWidget extends StatefulWidget {
+  final ProductModel productModel;
   const OfferWidget({
     super.key,
+    required this.productModel,
   });
 
   @override
+  State<OfferWidget> createState() => _OfferWidgetState();
+}
+
+class _OfferWidgetState extends State<OfferWidget> {
+  @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<ProductCubit>(context).getProducts('nike');
+    });
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    var discount = widget.productModel.offer?.couponDiscountPercent ?? 'Off';
+    var displayDiscount =
+        discount.length >= 3 ? discount.substring(0, 3) : discount;
     return Container(
       padding: const EdgeInsets.only(left: 25, top: 25, bottom: 25),
       height: 136,
@@ -23,8 +43,8 @@ class OfferWidget extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                '25%',
+              Text(
+                displayDiscount,
                 style: Styles.style36,
               ),
               Text(
@@ -35,18 +55,21 @@ class OfferWidget extends StatelessWidget {
               ),
             ],
           ),
-          const Spacer(),
-          Flexible(
+          const Spacer(flex: 2,),
+          Expanded(
             flex: 2,
-            child: Image.asset(
-              Constants.kShoe,
-              width: 180,
-              height: 180,
+            child: ClipRRect(
+              borderRadius: const BorderRadius.all(Radius.circular(12)),
+              child: Image.asset(
+                widget.productModel.photo,
+                width: 180,
+                height: 180,
+              ),
             ),
-          )
+          ),
+          const Spacer(),
         ],
       ),
     );
   }
 }
-

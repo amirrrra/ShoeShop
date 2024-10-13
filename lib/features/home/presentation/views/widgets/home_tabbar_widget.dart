@@ -40,7 +40,7 @@ class HomeTabbarWidgetState extends State<HomeTabbarWidget> {
 
   onTap(int index) {
     BlocProvider.of<ProductCubit>(context).getProducts(
-      HomeTabbarWidgetState().categories[index],
+      categories[index],
     );
 
     setState(() {
@@ -50,8 +50,8 @@ class HomeTabbarWidgetState extends State<HomeTabbarWidget> {
 
   List<String> get categories {
     return [
-      BrandsData.adidas,
       BrandsData.nike,
+      BrandsData.adidas,
       BrandsData.jordan,
       BrandsData.puma,
       BrandsData.reebok,
