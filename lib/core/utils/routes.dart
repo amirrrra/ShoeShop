@@ -3,6 +3,7 @@ import 'package:store/features/home/presentation/views/brand_view.dart';
 import 'package:store/features/home/presentation/views/home_view.dart';
 import 'package:store/features/home/presentation/views/offers_view.dart';
 import 'package:store/features/home/presentation/views/popular_view.dart';
+import 'package:store/features/home/presentation/views/product_view.dart';
 import 'package:store/features/splash/presentation/views/splash_view.dart';
 
 class Routes {
@@ -10,6 +11,7 @@ class Routes {
   static const kOffers = '/offers';
   static const kBrand = '/brand';
   static const kPopular = '/popular';
+  static const kProduct = '/product';
 
   final routes = GoRouter(
     routes: [
@@ -32,6 +34,10 @@ class Routes {
       GoRoute(
         path: kPopular,
         builder: (context, state) => const PopularView(),
+      ),
+      GoRoute(
+        path: kProduct,
+        builder: (context, state) => const ProductView(),
       ),
     ],
   );
