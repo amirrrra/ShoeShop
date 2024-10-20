@@ -3,8 +3,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:store/core/utils/color_palette.dart';
 import 'package:store/core/utils/constants.dart';
 
-class HomeSearchWidget extends StatelessWidget {
-  const HomeSearchWidget({super.key});
+class SearchFieldWidget extends StatelessWidget {
+  const SearchFieldWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

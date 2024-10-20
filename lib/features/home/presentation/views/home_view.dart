@@ -3,7 +3,7 @@ import 'package:store/features/home/presentation/views/widgets/brand_gridview_wi
 import 'package:store/features/home/presentation/views/widgets/home_appbar_widget.dart';
 import 'package:store/features/home/presentation/views/widgets/home_offers_widget.dart';
 import 'package:store/features/home/presentation/views/widgets/home_popular_widget.dart';
-import 'package:store/features/home/presentation/views/widgets/home_search_widget.dart';
+import 'package:store/features/search/presentation/views/widgets/search_field_widget.dart';
 import 'package:store/features/home/presentation/views/widgets/tabviews_widget.dart';
 
 class HomeView extends StatelessWidget {
@@ -24,7 +24,7 @@ class HomeView extends StatelessWidget {
                       SizedBox(height: 16),
                       HomeAppBarWidget(),
                       SizedBox(height: 12),
-                      HomeSearchWidget(),
+                      SearchFieldWidget(),
                       SizedBox(height: 4),
                       HomeOffersWidget(),
                       SizedBox(height: 20),
