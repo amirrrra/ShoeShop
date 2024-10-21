@@ -4,6 +4,7 @@ import 'package:store/features/home/presentation/views/home_view.dart';
 import 'package:store/features/home/presentation/views/offers_view.dart';
 import 'package:store/features/home/presentation/views/popular_view.dart';
 import 'package:store/features/home/presentation/views/product_view.dart';
+import 'package:store/features/search/presentation/views/search_view.dart';
 import 'package:store/features/splash/presentation/views/splash_view.dart';
 
 class Routes {
@@ -12,6 +13,7 @@ class Routes {
   static const kBrand = '/brand';
   static const kPopular = '/popular';
   static const kProduct = '/product';
+  static const kSearch = '/search';
 
   final routes = GoRouter(
     routes: [
@@ -38,6 +40,10 @@ class Routes {
       GoRoute(
         path: kProduct,
         builder: (context, state) => const ProductView(),
+      ),
+      GoRoute(
+        path: kSearch,
+        builder: (context, state) => const SearchView(),
       ),
     ],
   );

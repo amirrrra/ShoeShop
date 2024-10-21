@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:store/core/utils/routes.dart';
 import 'package:store/features/home/presentation/views/widgets/brand_gridview_widget.dart';
 import 'package:store/features/home/presentation/views/widgets/home_appbar_widget.dart';
 import 'package:store/features/home/presentation/views/widgets/home_offers_widget.dart';
@@ -16,24 +18,26 @@ class HomeView extends StatelessWidget {
         child: NestedScrollView(
           headerSliverBuilder: (context, isScrolled) {
             return [
-              const SliverToBoxAdapter(
+              SliverToBoxAdapter(
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Column(
                     children: [
-                      SizedBox(height: 16),
-                      HomeAppBarWidget(),
-                      SizedBox(height: 12),
-                      SearchFieldWidget(),
-                      SizedBox(height: 4),
-                      HomeOffersWidget(),
-                      SizedBox(height: 20),
-                      BrandGridviewWidget(),
+                      const SizedBox(height: 16),
+                      const HomeAppBarWidget(),
+                      const SizedBox(height: 12),
+                      SearchFieldWidget(
+                        onTap: () => GoRouter.of(context).push(Routes.kSearch),
+                      ),
+                      const SizedBox(height: 4),
+                      const HomeOffersWidget(),
+                      const SizedBox(height: 20),
+                      const BrandGridviewWidget(),
                     ],
                   ),
                 ),
               ),
-              const SliverToBoxAdapter(child:  HomePopularWidget()),
+              const SliverToBoxAdapter(child: HomePopularWidget()),
             ];
           },
           body: const TabviewsWidget(),

@@ -16,7 +16,9 @@ class SearchView extends StatelessWidget {
             SizedBox(height: 16),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
-              child: SearchFieldWidget(),
+              child: SearchFieldWidget(
+                autofocus: true,
+              ),
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),

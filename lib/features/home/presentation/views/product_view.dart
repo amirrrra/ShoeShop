@@ -9,11 +9,13 @@ class ProductView extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            ProductImageWidget(),
-            ProductDetailsWidget(),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              ProductImageWidget(),
+              ProductDetailsWidget(),
+            ],
+          ),
         ),
       ),
     );

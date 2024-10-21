@@ -64,9 +64,9 @@ class ProductDetailsWidget extends StatelessWidget {
               Expanded(child: ProductButtonWidget())
             ],
           ),
+          SizedBox(height: 20),
         ],
       ),
     );
   }
 }
-

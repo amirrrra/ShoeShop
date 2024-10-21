@@ -5,7 +5,6 @@ import 'package:store/core/utils/constants.dart';
 import 'package:store/core/utils/routes.dart';
 import 'package:store/features/home/data/repos/home_repo_impl.dart';
 import 'package:store/features/home/presentation/view%20models/cubits/product_cubit.dart';
-import 'package:store/features/search/presentation/views/search_view.dart';
 
 void main() async {
   await dotenv.load(fileName: ".env");
@@ -23,9 +22,9 @@ class ShoeShop extends StatelessWidget {
           create: (context) => ProductCubit(HomeRepoImpl()),
         )
       ],
-      child: MaterialApp(
-        // routerConfig: Routes().routes,
-        home: const SearchView(),
+      child: MaterialApp.router(
+        routerConfig: Routes().routes,
+        // home: const SearchView(),
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           textTheme: const TextTheme(
