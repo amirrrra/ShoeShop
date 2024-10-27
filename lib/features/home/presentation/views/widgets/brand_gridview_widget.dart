@@ -1,24 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:go_router/go_router.dart';
+import 'package:store/core/utils/routes.dart';
 import 'package:store/features/home/data/models/brand_model.dart';
 import 'package:store/features/home/presentation/views/widgets/brand_widget.dart';
 
-class BrandGridviewWidget extends StatefulWidget {
+class BrandGridviewWidget extends StatelessWidget {
   const BrandGridviewWidget({super.key});
-
-  @override
-  State<BrandGridviewWidget> createState() => _BrandGridviewWidgetState();
-}
-
-class _BrandGridviewWidgetState extends State<BrandGridviewWidget> {
-  bool flag = false;
 
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
-      itemCount: flag ? getMoreBrands().length : getLessBrands().length,
+      itemCount: BrandsData.brandsList.length,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 4,
         crossAxisSpacing: 16,
@@ -26,40 +21,13 @@ class _BrandGridviewWidgetState extends State<BrandGridviewWidget> {
       ),
       itemBuilder: (BuildContext context, int index) {
         return BrandWidget(
-          brandModel: flag ? getMoreBrands()[index] : getLessBrands()[index],
+          brandModel: BrandsData.brandsList[index],
+          onTap: () => GoRouter.of(context).push(
+            Routes.kBrand,
+            extra: BrandsData.names[index],
+          ),
         );
       },
     );
-  }
-
-  List<BrandModel> getLessBrands() {
-    return [
-      ...BrandsData().brandsBaseList(context),
-      BrandModel(
-        name: BrandsData.more,
-        logo: BrandsData.moreLogo,
-        onTap: () {
-          setState(() {
-            flag = true;
-          });
-        },
-      ),
-    ];
-  }
-
-  List<BrandModel> getMoreBrands() {
-    return [
-      ...BrandsData().brandsBaseList(context),
-      ...BrandsData().brandSubList(context),
-      BrandModel(
-        name: BrandsData.less,
-        logo: BrandsData.lessLogo,
-        onTap: () {
-          setState(() {
-            flag = false;
-          });
-        },
-      ),
-    ];
   }
 }

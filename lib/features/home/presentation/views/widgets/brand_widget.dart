@@ -4,13 +4,14 @@ import 'package:store/core/utils/color_palette.dart';
 import 'package:store/features/home/data/models/brand_model.dart';
 
 class BrandWidget extends StatelessWidget {
+  final void Function() onTap;
   final BrandModel brandModel;
-  const BrandWidget({super.key, required this.brandModel});
+  const BrandWidget({super.key, required this.brandModel, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: brandModel.onTap,
+      onTap: onTap,
       child: Column(
         children: [
           CircleAvatar(

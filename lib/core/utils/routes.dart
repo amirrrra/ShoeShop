@@ -31,11 +31,15 @@ class Routes {
       ),
       GoRoute(
         path: kBrand,
-        builder: (context, state) => const BrandView(),
+        builder: (context, state) => BrandView(
+          category: state.extra as String,
+        ),
       ),
       GoRoute(
         path: kPopular,
-        builder: (context, state) => const PopularView(),
+        builder: (context, state) => PopularView(
+          category: state.extra as String,
+        ),
       ),
       GoRoute(
         path: kProduct,
