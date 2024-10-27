@@ -3,10 +3,8 @@ import 'package:store/features/home/presentation/views/widgets/offers_listview_w
 import 'package:store/features/home/presentation/views/widgets/sub_appbar_widget.dart';
 
 class OffersView extends StatelessWidget {
-  // final ProductModel productModel;
   const OffersView({
     super.key,
-    // required this.productModel,
   });
 
   @override
@@ -18,7 +16,7 @@ class OffersView extends StatelessWidget {
             SizedBox(height: 12),
             SubAppbarWidget(title: 'Special Offers'),
             SizedBox(height: 12),
-            Expanded(child: OffersListViewWidget()),
+           Expanded(child: OffersListViewWidget()),
           ],
         ),
       ),
