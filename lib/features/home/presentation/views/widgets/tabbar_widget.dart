@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store/core/utils/color_palette.dart';
 import 'package:store/features/home/data/models/brand_model.dart';
+import 'package:store/features/home/presentation/view%20models/cubits/category%20cubit/category_cubit.dart';
 import 'package:store/features/home/presentation/view%20models/cubits/product_cubit.dart';
 
 class TabbarWidget extends StatefulWidget {
@@ -30,7 +31,8 @@ class TabbarWidgetState extends State<TabbarWidget> {
           tabs: getTabs(),
           onTap: (index) {
             onTap(index);
-          
+            // Update the category index in the CategoryCubit.
+            context.read<CategoryCubit>().setCategoryIndex(index);
           },
           isScrollable: true,
           tabAlignment: TabAlignment.start,
