@@ -3,7 +3,9 @@ import 'package:store/core/errors/failure.dart';
 import 'package:store/features/home/data/models/product_model/product_model.dart';
 
 abstract class HomeRepo {
-  Future<Either<Failure,List<ProductModel>>> fetchProducts({
-    required String category,
-  });
+  Future<Either<Failure, List<ProductModel>>> fetchProducts(
+    String category,
+    num limit,
+    String filter,
+  );
 }
