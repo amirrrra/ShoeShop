@@ -1,42 +1,24 @@
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:store/core/utils/color_palette.dart';
 import 'package:store/core/utils/routes.dart';
 import 'package:store/core/utils/styles.dart';
+import 'package:store/features/home/data/models/product_model/product_model.dart';
 
-class OfferWidget extends StatefulWidget {
-  // final ProductModel productModel;
+class OfferWidget extends StatelessWidget {
+  final ProductModel productModel;
   const OfferWidget({
     super.key,
-    // required this.productModel,
+    required this.productModel,
   });
 
   @override
-  State<OfferWidget> createState() => _OfferWidgetState();
-}
-
-class _OfferWidgetState extends State<OfferWidget> {
-  
-
-  // @override
-  // void initState() {
-  //   WidgetsBinding.instance.addPostFrameCallback((_) {
-  //     BlocProvider.of<ProductCubit>(context).getProducts('nike');
-  //   });
-  //   super.initState();
-  // }
-
-  @override
   Widget build(BuildContext context) {
-    // var percent = widget.productModel.offer?.couponDiscountPercent ?? 'Off';
-    // var discount = percent.length >= 3 ? percent.substring(0, 3) : percent;
+    var percent = productModel.offer?.couponDiscountPercent ?? 'Off';
+    var discount = percent.length >= 3 ? percent.substring(0, 3) : percent;
 
     return GestureDetector(
-      onTap: () => GoRouter.of(context).pushNamed(
-        Routes.kOffers,
-        // extra: widget.productModel,
-      ),
+      onTap: () => GoRouter.of(context).pushNamed(Routes.kOffers),
       child: Container(
         padding: const EdgeInsets.only(left: 25, top: 25, bottom: 25),
         height: 136,
@@ -50,8 +32,8 @@ class _OfferWidgetState extends State<OfferWidget> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  '25%',
+                 Text(
+                  discount,
                   style: Styles.style36,
                 ),
                 Text(
@@ -69,8 +51,8 @@ class _OfferWidgetState extends State<OfferWidget> {
               flex: 2,
               child: ClipRRect(
                 borderRadius: const BorderRadius.all(Radius.circular(12)),
-                child: Image.asset(
-                  'assets/pics/shoes.png',
+                child: Image.network(
+                  productModel.photo,
                   width: 180,
                   height: 180,
                 ),
