@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:store/features/home/presentation/views/widgets/tabbar_widget.dart';
+import 'package:store/features/home/data/models/brand_model.dart';
 import 'package:store/features/home/presentation/views/widgets/product_grid_widget.dart';
 
 class TabviewsWidget extends StatelessWidget {
@@ -8,11 +8,10 @@ class TabviewsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: TabbarWidgetState().categories.length,
+      length: BrandsData.names.length,
       child: TabBarView(
         physics: const NeverScrollableScrollPhysics(),
-        children: TabbarWidgetState()
-            .categories
+        children: BrandsData.names
             .map(
               (item) => const ProductGridWidget(),
             )

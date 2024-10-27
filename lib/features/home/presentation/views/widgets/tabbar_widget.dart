@@ -16,7 +16,7 @@ class TabbarWidgetState extends State<TabbarWidget> {
 
   @override
   void initState() {
-    onTap(0);
+    onTap(selectedIndex);
     super.initState();
   }
 
@@ -25,11 +25,12 @@ class TabbarWidgetState extends State<TabbarWidget> {
     return Padding(
       padding: const EdgeInsets.only(left: 20),
       child: DefaultTabController(
-        length: TabbarWidgetState().categories.length,
+        length: BrandsData.names.length,
         child: TabBar(
           tabs: getTabs(),
           onTap: (index) {
             onTap(index);
+          
           },
           isScrollable: true,
           tabAlignment: TabAlignment.start,
@@ -46,7 +47,9 @@ class TabbarWidgetState extends State<TabbarWidget> {
 
   onTap(int index) {
     BlocProvider.of<ProductCubit>(context).getProducts(
-      categories[index],
+      category: BrandsData.names[index],
+      limit: 10,
+      filter: 'TOP_RATED',
     );
 
     setState(() {
@@ -54,38 +57,25 @@ class TabbarWidgetState extends State<TabbarWidget> {
     });
   }
 
-  List<String> get categories {
-    return [
-      BrandsData.nike,
-      BrandsData.adidas,
-      BrandsData.jordan,
-      BrandsData.puma,
-      BrandsData.reebok,
-      BrandsData.converse,
-      BrandsData.skechers,
-      BrandsData.newbalance,
-      BrandsData.fila,
-      BrandsData.vans,
-      BrandsData.asics,
-    ];
-  }
-
   List<Widget> getTabs() {
-    return List.generate(categories.length, (index) {
-      return Container(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        decoration: BoxDecoration(
-          color: selectedIndex == index
-              ? ColorPalette.kBlack
-              : ColorPalette.kTransparent,
-          border: Border.all(width: 1.6),
-          borderRadius: const BorderRadius.all(Radius.circular(16)),
-        ),
-        child: Tab(
-          text: categories[index],
-          height: 30,
-        ),
-      );
-    });
+    return List.generate(
+      BrandsData.names.length,
+      (index) {
+        return Container(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          decoration: BoxDecoration(
+            color: selectedIndex == index
+                ? ColorPalette.kBlack
+                : ColorPalette.kTransparent,
+            border: Border.all(width: 1.6),
+            borderRadius: const BorderRadius.all(Radius.circular(16)),
+          ),
+          child: Tab(
+            text: BrandsData.names[index],
+            height: 30,
+          ),
+        );
+      },
+    );
   }
 }
