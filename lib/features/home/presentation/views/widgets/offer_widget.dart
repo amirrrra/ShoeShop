@@ -32,7 +32,7 @@ class OfferWidget extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                 Text(
+                Text(
                   discount,
                   style: Styles.style36,
                 ),

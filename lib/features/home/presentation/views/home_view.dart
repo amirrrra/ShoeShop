@@ -37,7 +37,9 @@ class HomeView extends StatelessWidget {
                   ),
                 ),
               ),
-               const SliverToBoxAdapter(child: HomePopularWidget(),),
+              const SliverToBoxAdapter(
+                child: HomePopularWidget(),
+              ),
             ];
           },
           body: const TabviewsWidget(),

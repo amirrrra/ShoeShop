@@ -7,12 +7,12 @@ class SplashView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   final double screenHeight = MediaQuery.of(context).size.height;
+    final double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SizedBox(height: screenHeight/2.5),
+          SizedBox(height: screenHeight / 2.5),
           const TitleWidget(),
           const Flexible(child: LogoWidget()),
         ],

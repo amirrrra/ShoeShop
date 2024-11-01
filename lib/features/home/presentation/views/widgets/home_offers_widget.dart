@@ -17,7 +17,7 @@ class HomeOffersWidget extends StatefulWidget {
 }
 
 class _HomeOffersWidgetState extends State<HomeOffersWidget> {
-   @override
+  @override
   void initState() {
     BlocProvider.of<ProductCubit>(context).getProducts(
       category: 'Nike',
@@ -26,7 +26,7 @@ class _HomeOffersWidgetState extends State<HomeOffersWidget> {
     );
     super.initState();
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Column(

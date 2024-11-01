@@ -11,12 +11,21 @@ class OffersView extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            SizedBox(height: 12),
-            SubAppbarWidget(title: 'Special Offers'),
-            SizedBox(height: 12),
-           Expanded(child: OffersListViewWidget()),
+        child: CustomScrollView(
+          physics:BouncingScrollPhysics(),
+          slivers: [
+            SliverToBoxAdapter(
+              child: Column(
+                children: [
+                  SizedBox(height: 12),
+                  SubAppbarWidget(title: 'Special Offers'),
+                  SizedBox(height: 12),
+                ],
+              ),
+            ),
+            SliverFillRemaining(
+              child: OffersListViewWidget(),
+            )
           ],
         ),
       ),

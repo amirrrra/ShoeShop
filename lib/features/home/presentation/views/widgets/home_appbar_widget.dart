@@ -21,7 +21,7 @@ class HomeAppBarWidget extends StatelessWidget {
             fontWeight: FontWeight.w700,
             letterSpacing: 3,
           ),
-        ),        
+        ),
       ],
     );
   }

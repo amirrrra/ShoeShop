@@ -3,8 +3,6 @@ import 'package:store/core/utils/styles.dart';
 import 'package:store/features/search/presentation/views/widgets/filter_selections_widget.dart';
 
 class FilterWidget {
- 
-
   void showModal(BuildContext context) {
     showModalBottomSheet(
       constraints: BoxConstraints.tight(const Size.fromHeight(340)),

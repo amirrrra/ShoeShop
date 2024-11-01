@@ -17,7 +17,7 @@ class _FilterSelectionsWidgetState extends State<FilterSelectionsWidget> {
     'Highest Price'
   ];
   int selectedIndex = 0;
-  
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(

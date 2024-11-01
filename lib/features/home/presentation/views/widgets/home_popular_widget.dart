@@ -16,7 +16,7 @@ class HomePopularWidget extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
-          // listens to the selected index 
+          // listens to the selected index
           child: BlocBuilder<TabCubit, int>(
             builder: (buildContext, selectedIndex) {
               return HomeSubTitleWidget(
