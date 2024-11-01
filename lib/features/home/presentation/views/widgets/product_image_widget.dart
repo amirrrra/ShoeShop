@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:store/core/utils/color_palette.dart';
-import 'package:store/core/utils/constants.dart';
+import 'package:store/features/home/data/models/product_model/product_model.dart';
 
 class ProductImageWidget extends StatelessWidget {
+  final ProductModel productModel;
   const ProductImageWidget({
     super.key,
+    required this.productModel,
   });
 
   @override
@@ -38,8 +40,8 @@ class ProductImageWidget extends StatelessWidget {
           decoration: const BoxDecoration(
             color: ColorPalette.kFGrey,
           ),
-          child: Image.asset(
-            Constants.kShoe,
+          child: Image.network(
+            productModel.photo,
           ),
         ),
       ],

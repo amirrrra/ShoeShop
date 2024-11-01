@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:store/core/utils/styles.dart';
+import 'package:store/features/home/data/models/product_model/product_model.dart';
 import 'package:store/features/home/presentation/views/widgets/product_button_widget.dart';
 import 'package:store/features/home/presentation/views/widgets/product_color_widget.dart';
 import 'package:store/features/home/presentation/views/widgets/product_description_widget.dart';
@@ -7,64 +8,74 @@ import 'package:store/features/home/presentation/views/widgets/product_rating_wi
 import 'package:store/features/home/presentation/views/widgets/product_size_widget.dart';
 
 class ProductDetailsWidget extends StatelessWidget {
+  final ProductModel productModel;
+
   const ProductDetailsWidget({
     super.key,
+    required this.productModel,
   });
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 25),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 25),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 12),
+          const SizedBox(height: 12),
           Text(
-            'Running Sportwear',
+            productModel.title,
             style: Styles.style32,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
           ),
-          SizedBox(height: 4),
-          ProductRatingWidget(),
-          SizedBox(height: 2),
-          Divider(),
-          SizedBox(height: 2),
-          Text(
+          const SizedBox(height: 4),
+          ProductRatingWidget(
+            productModel: productModel,
+          ),
+          const SizedBox(height: 2),
+          const Divider(),
+          const SizedBox(height: 2),
+          const Text(
             'Description',
             style: Styles.style20,
           ),
-          ProductDescriptionWidget(),
-          SizedBox(height: 8),
-          Text(
-            'Color',
+          ProductDescriptionWidget(
+            productModel: productModel,
+          ),
+          const SizedBox(height: 8),
+          const Text(
+            'Size',
             style: Styles.style20,
           ),
-          ProductSizeWidget(),
-          SizedBox(height: 8),
-          Text('Size', style: Styles.style20),
-          ProductColorWidget(),
-          SizedBox(height: 10),
-          Divider(),
-          SizedBox(height: 12),
+          ProductSizeWidget(
+            productModel: productModel,
+          ),
+          const SizedBox(height: 8),
+          const Text('Colors', style: Styles.style20),
+          ProductColorWidget(
+            productModel: productModel,
+          ),
+          const SizedBox(height: 10),
+          const Divider(),
+          const SizedBox(height: 12),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Column(
                 children: [
-                  Text('Price', style: Styles.style14),
+                  const Text('Price', style: Styles.style14),
                   Text(
-                    // '${productModel.offer?.originalPrice ?? r'$0'}',
-                    r'$120',
+                    productModel.offer?.price ?? 'Unknown',
                     style: Styles.style22,
                   ),
                 ],
               ),
-              SizedBox(width: 32),
-              Expanded(child: ProductButtonWidget())
+              const SizedBox(width: 32),
+              const Expanded(child: ProductButtonWidget())
             ],
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
         ],
       ),
     );

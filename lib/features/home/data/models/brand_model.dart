@@ -21,7 +21,7 @@ class BrandsData {
 
   static const path = 'assets/brands/';
 
- static List<String> logos = [
+  static List<String> logos = [
     '$path${'nike.svg'}',
     '$path${'adidas.svg'}',
     '$path${'jordan.svg'}',
@@ -32,7 +32,7 @@ class BrandsData {
     '$path${'newbalance.svg'}',
   ];
 
- static List<String> names = [
+  static List<String> names = [
     'Nike',
     'Adidas',
     'Jordan',

@@ -33,27 +33,35 @@ class _PopularViewState extends State<PopularView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            const SizedBox(height: 12),
-            const SubAppbarWidget(title: 'Most Popular'),
-            const SizedBox(height: 12),
-            const TabbarWidget(),
-            const SizedBox(height: 16),
-            BlocBuilder<ProductCubit, ProductState>(
-              builder: (context, state) {
-                if (state is ProductSuccessState) {
-                  return const Expanded(child: TabviewsWidget());
-                } else if (state is ProductFailureState) {
-                  return FailureWidget(errMessage: state.errMessage);
-                } else if (state is ProductLoadingState) {
-                  return const LoadingWidget();
-                } else {
-                  return const Icon(Icons.question_mark);
-                }
-              },
-            ),
-          ],
+        child: NestedScrollView(
+          headerSliverBuilder: (context, _) {
+            return [
+              const SliverToBoxAdapter(
+                child: Column(
+                  children: [
+                    SizedBox(height: 12),
+                    SubAppbarWidget(title: 'Most Popular'),
+                    SizedBox(height: 12),
+                    TabbarWidget(),
+                    SizedBox(height: 16),
+                  ],
+                ),
+              ),
+            ];
+          },
+          body: BlocBuilder<ProductCubit, ProductState>(
+            builder: (context, state) {
+              if (state is ProductSuccessState) {
+                return TabviewsWidget();
+              } else if (state is ProductFailureState) {
+                return FailureWidget(errMessage: state.errMessage);
+              } else if (state is ProductLoadingState) {
+                return const LoadingWidget();
+              } else {
+                return const Icon(Icons.question_mark);
+              }
+            },
+          ),
         ),
       ),
     );

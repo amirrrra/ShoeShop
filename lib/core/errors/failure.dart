@@ -4,6 +4,9 @@ class Failure {
   final String errMessage;
 
   Failure({required this.errMessage});
+
+  @override
+  String toString() => errMessage;
 }
 
 class ServerFailure extends Failure {
@@ -33,9 +36,12 @@ class ServerFailure extends Failure {
     }
   }
 
-  factory ServerFailure.fromDioResponse(int? statusCode, response) {
+  factory ServerFailure.fromDioResponse(
+      int? statusCode, Response<dynamic>? response) {
     if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
-      return ServerFailure(errMessage: response['error']['message']);
+      return ServerFailure(
+          errMessage: response?.data['message'] ??
+              'Unexpected error, please try again');
     } else if (statusCode == 404) {
       return ServerFailure(errMessage: '404 not found');
     } else {

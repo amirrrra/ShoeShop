@@ -17,7 +17,10 @@ class ProductWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => GoRouter.of(context).push(Routes.kProduct),
+      onTap: () => GoRouter.of(context).push(
+        Routes.kProduct,
+        extra: productModel,
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -34,7 +37,7 @@ class ProductWidget extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 6),
-           Text(
+          Text(
             productModel.title,
             style: Styles.style18,
             maxLines: 1,
@@ -48,7 +51,7 @@ class ProductWidget extends StatelessWidget {
                 child: SvgPicture.asset(Constants.kStar),
               ),
               const SizedBox(width: 4),
-               Text(
+              Text(
                 '${(productModel.rating ?? 0).toString()}'
                 '  (${productModel.reviews ?? 0} reviews)',
                 style: const TextStyle(
@@ -59,8 +62,8 @@ class ProductWidget extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 4),
-           Text(
-            '${productModel.offer?.originalPrice ?? r'$0'}',
+          Text(
+            productModel.offer?.price ?? r'$0',
             style: Styles.style18,
           ),
         ],

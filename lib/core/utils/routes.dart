@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:store/features/home/data/models/product_model/product_model.dart';
 import 'package:store/features/home/presentation/views/brand_view.dart';
 import 'package:store/features/home/presentation/views/home_view.dart';
 import 'package:store/features/home/presentation/views/offers_view.dart';
@@ -43,7 +44,9 @@ class Routes {
       ),
       GoRoute(
         path: kProduct,
-        builder: (context, state) => const ProductView(),
+        builder: (context, state) => ProductView(
+          productModel: state.extra as ProductModel,
+        ),
       ),
       GoRoute(
         path: kSearch,

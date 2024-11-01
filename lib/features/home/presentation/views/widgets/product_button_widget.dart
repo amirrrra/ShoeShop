@@ -11,8 +11,8 @@ class ProductButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       style: TextButton.styleFrom(
-        shadowColor:ColorPalette.kBlack,
-        elevation:8,
+        shadowColor: ColorPalette.kBlack,
+        elevation: 8,
         fixedSize: const Size(double.infinity, 50),
         backgroundColor: ColorPalette.kBlack,
         shape: const RoundedRectangleBorder(

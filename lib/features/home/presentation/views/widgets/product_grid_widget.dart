@@ -17,7 +17,7 @@ class ProductGridWidget extends StatelessWidget {
           return GridView.builder(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             physics: const NeverScrollableScrollPhysics(),
-            itemCount: 20,
+            itemCount: state.productList.length,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
               crossAxisSpacing: 30,

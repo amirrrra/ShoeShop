@@ -12,7 +12,7 @@ class ApiService {
     String filter,
   ) async {
     var response = await dio.get(
-      '$_baseUrl${'search?q=$category&country=us&limit=$limit&sort_by=$filter'}',
+      '$_baseUrl${'search?q=$category%20shoes&country=us&limit=$limit&sort_by=$filter'}',
       options: Options(
         headers: {
           'X-RapidAPI-Key': dotenv.env['X-RapidAPI-Key'],

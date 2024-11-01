@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:store/core/utils/color_palette.dart';
 import 'package:store/core/utils/constants.dart';
+import 'package:store/features/home/data/models/product_model/product_model.dart';
 
 class ProductRatingWidget extends StatelessWidget {
+  final ProductModel productModel;
+
   const ProductRatingWidget({
     super.key,
+    required this.productModel,
   });
 
   @override
@@ -17,11 +21,10 @@ class ProductRatingWidget extends StatelessWidget {
           child: SvgPicture.asset(Constants.kStar),
         ),
         const SizedBox(width: 4),
-        const Text(
-          // '${(productModel.rating ?? 0).toString()}'
-          // '  (${productModel.reviews ?? 0} reviews)',
-          '4.7 (7424 reviews)',
-          style: TextStyle(
+        Text(
+          '${(productModel.rating ?? 0).toString()}'
+          '  (${productModel.reviews ?? 0} reviews)',
+          style: const TextStyle(
             color: ColorPalette.kGrey7,
             fontFamily: Constants.kUrwMed,
             fontSize: 14,
@@ -31,4 +34,3 @@ class ProductRatingWidget extends StatelessWidget {
     );
   }
 }
-
