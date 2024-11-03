@@ -5,8 +5,47 @@ import 'package:store/features/home/data/models/brand_model.dart';
 import 'package:store/features/home/presentation/view%20models/cubits/tab%20cubit/tab_cubit.dart';
 import 'package:store/features/home/presentation/view%20models/cubits/product_cubit.dart';
 
-class TabbarWidget extends StatelessWidget {
+class TabbarWidget extends StatefulWidget {
   const TabbarWidget({super.key});
+
+  @override
+  State<TabbarWidget> createState() => _TabbarWidgetState();
+}
+
+class _TabbarWidgetState extends State<TabbarWidget> with SingleTickerProviderStateMixin {
+  TabController? _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+
+    // Get the initial index from the TabCubit
+    final initialIndex = context.read<TabCubit>().state;
+    _tabController = TabController(
+      length: BrandsData.names.length,
+      vsync: this,
+      initialIndex: initialIndex,
+    );
+
+    // Trigger the onTap action for the initial tab
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      onTap(context, initialIndex);
+    });
+
+    // Listen for tab changes and update the cubit index
+    _tabController?.addListener(() {
+      if (_tabController!.indexIsChanging) return; // Avoids unnecessary state changes
+      final newIndex = _tabController!.index;
+      onTap(context, newIndex);
+      context.read<TabCubit>().setCategoryIndex(newIndex);
+    });
+  }
+
+  @override
+  void dispose() {
+    _tabController?.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -14,21 +53,15 @@ class TabbarWidget extends StatelessWidget {
       padding: const EdgeInsets.only(left: 20),
       child: BlocBuilder<TabCubit, int>(
         builder: (context, selectedIndex) {
+          // Sync the TabController's index with the current selectedIndex
+          if (_tabController != null && _tabController!.index != selectedIndex) {
+            _tabController!.animateTo(selectedIndex);
+          }
           return DefaultTabController(
-            initialIndex: selectedIndex,
             length: BrandsData.names.length,
             child: TabBar(
+              controller: _tabController,
               tabs: getTabs(selectedIndex),
-              onTap: (index) {
-                // trigger ProductCubit
-                BlocProvider.of<ProductCubit>(context).getProducts(
-                  category: BrandsData.names[index],
-                  limit: 10,
-                  filter: 'TOP_RATED',
-                );
-                // trigger TabCubit == update cubit index
-                context.read<TabCubit>().setCategoryIndex(index);
-              },
               isScrollable: true,
               tabAlignment: TabAlignment.start,
               labelPadding: const EdgeInsets.only(right: 12),
@@ -41,6 +74,14 @@ class TabbarWidget extends StatelessWidget {
           );
         },
       ),
+    );
+  }
+
+  void onTap(BuildContext context, int index) {
+    BlocProvider.of<ProductCubit>(context).getProducts(
+      category: BrandsData.names[index],
+      limit: 10,
+      filter: 'TOP_RATED',
     );
   }
 

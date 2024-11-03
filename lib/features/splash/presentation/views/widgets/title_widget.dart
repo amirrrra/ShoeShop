@@ -47,23 +47,20 @@ class _TitleWidgetState extends State<TitleWidget>
   void triggerFadeTransition() {
     controller = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 1),
-      // duration: const Duration(seconds: 2),
+      duration: const Duration(seconds: 2),
     );
 
     animation = Tween<double>(begin: 0, end: 1).animate(controller);
 
     Future.delayed(
-      const Duration(seconds: 1),
-      // const Duration(seconds: 3),
+      const Duration(seconds: 3),
       () => controller.forward(),
     );
   }
 
   void toHome() {
     Future.delayed(
-      const Duration(seconds: 1),
-      // const Duration(seconds: 5),
+      const Duration(seconds: 5),
       () => GoRouter.of(context).pushReplacement(Routes.kHome),
     );
   }

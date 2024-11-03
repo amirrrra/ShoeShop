@@ -43,8 +43,7 @@ class _LogoWidgetState extends State<LogoWidget>
   void triggerAlignTransition() {
     controller = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 1),
-      // duration: const Duration(seconds: 3),
+      duration: const Duration(seconds: 3),
     );
 
     var curvedAnimation = CurvedAnimation(
