@@ -37,9 +37,8 @@ class _SearchViewState extends State<SearchView> {
                           child: SearchFieldWidget(
                             autofocus: true,
                             onFieldSubmitted: (category) {
-                              
-                        
-                              BlocProvider.of<ProductCubit>(context).getProducts(
+                              BlocProvider.of<ProductCubit>(context)
+                                  .getProducts(
                                 category: category,
                                 limit: 20,
                                 filter: filters[selectedIndex],
