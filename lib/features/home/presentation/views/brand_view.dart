@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store/features/home/presentation/view%20models/cubits/product_cubit.dart';
-import 'package:store/features/home/presentation/views/widgets/product_grid_widget.dart';
+import 'package:store/features/home/presentation/views/widgets/product_result_widget.dart';
 import 'package:store/features/home/presentation/views/widgets/sub_appbar_widget.dart';
 
 class BrandView extends StatefulWidget {
@@ -34,7 +34,7 @@ class _BrandViewState extends State<BrandView> {
             const SizedBox(height: 12),
             SubAppbarWidget(title: widget.category),
             const SizedBox(height: 12),
-            const Expanded(child: ProductGridWidget()),
+            const Expanded(child: ProductResultWidget()),
           ],
         ),
       ),

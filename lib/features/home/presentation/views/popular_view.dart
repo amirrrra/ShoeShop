@@ -52,7 +52,7 @@ class _PopularViewState extends State<PopularView> {
           body: BlocBuilder<ProductCubit, ProductState>(
             builder: (context, state) {
               if (state is ProductSuccessState) {
-                return TabviewsWidget();
+                return const TabviewsWidget();
               } else if (state is ProductFailureState) {
                 return FailureWidget(errMessage: state.errMessage);
               } else if (state is ProductLoadingState) {

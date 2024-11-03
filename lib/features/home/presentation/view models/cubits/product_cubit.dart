@@ -11,7 +11,6 @@ class ProductCubit extends Cubit<ProductState> {
     required num limit,
     required String filter,
   }) async {
-    print("Fetching products for category: $category");
 
     emit(ProductLoadingState());
 
@@ -19,11 +18,9 @@ class ProductCubit extends Cubit<ProductState> {
 
     data.fold(
       (errmessage) {
-        print("Error fetching products:$category $errmessage");
         emit(ProductFailureState(errMessage: errmessage.toString()));
       },
       (productList) {
-        print("Products fetched: ${data.length}");
 
         emit(ProductSuccessState(productList: productList));
       },

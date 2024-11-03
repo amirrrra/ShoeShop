@@ -1,5 +1,4 @@
 import 'product_variants.dart';
-
 import 'offer.dart';
 
 class ProductModel {

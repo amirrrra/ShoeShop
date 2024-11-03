@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:store/features/home/data/models/brand_model.dart';
-import 'package:store/features/home/presentation/views/widgets/product_grid_widget.dart';
+import 'package:store/features/home/presentation/views/widgets/product_result_widget.dart';
 
 class TabviewsWidget extends StatelessWidget {
   const TabviewsWidget({super.key});
@@ -13,7 +13,7 @@ class TabviewsWidget extends StatelessWidget {
         physics: const NeverScrollableScrollPhysics(),
         children: BrandsData.names
             .map(
-              (item) => const ProductGridWidget(),
+              (item) => const ProductResultWidget(),
             )
             .toList(),
       ),

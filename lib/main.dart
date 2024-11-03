@@ -6,6 +6,7 @@ import 'package:store/core/utils/routes.dart';
 import 'package:store/features/home/data/repos/home_repo_impl.dart';
 import 'package:store/features/home/presentation/view%20models/cubits/product_cubit.dart';
 import 'package:store/features/home/presentation/view%20models/cubits/tab%20cubit/tab_cubit.dart';
+import 'package:store/features/search/presentation/view%20models/cubits/filters%20cubit/filters_cubit.dart';
 
 void main() async {
   await dotenv.load(fileName: ".env");
@@ -21,6 +22,7 @@ class ShoeShop extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => ProductCubit(HomeRepoImpl())),
         BlocProvider(create: (context) => TabCubit()),
+        BlocProvider(create: (context) => FiltersCubit()),
       ],
       child: MaterialApp.router(
         routerConfig: Routes().routes,

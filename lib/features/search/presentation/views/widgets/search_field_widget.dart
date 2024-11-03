@@ -5,9 +5,16 @@ import 'package:store/core/utils/constants.dart';
 import 'package:store/features/search/presentation/views/widgets/filter_widget.dart';
 
 class SearchFieldWidget extends StatelessWidget {
-  final void Function()? onTap;
   final bool autofocus;
-  const SearchFieldWidget({super.key, this.autofocus = false, this.onTap});
+  final void Function(String)? onFieldSubmitted;
+  final void Function()? onTap;
+
+  const SearchFieldWidget({
+    super.key,
+    this.autofocus = false,
+    this.onFieldSubmitted,
+    this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +23,7 @@ class SearchFieldWidget extends StatelessWidget {
       height: 70,
       child: TextFormField(
         onTap: onTap,
+        onFieldSubmitted: onFieldSubmitted,
         autofocus: autofocus,
         readOnly: !autofocus,
         cursorColor: ColorPalette.kCGrey,
