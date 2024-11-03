@@ -24,7 +24,7 @@ class HomeOffersWidget extends StatelessWidget {
         BlocBuilder<ProductCubit, ProductState>(
           builder: (context, state) {
             if (state is ProductSuccessState) {
-              return OfferWidget(productModel: state.productList[6]);
+              return OfferWidget(productModel: state.productList[0]);
             } else if (state is ProductFailureState) {
               return FailureWidget(errMessage: state.errMessage);
             } else if (state is ProductLoadingState) {

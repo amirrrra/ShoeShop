@@ -72,7 +72,10 @@ class ProductDetailsWidget extends StatelessWidget {
                 ],
               ),
               const SizedBox(width: 32),
-              const Expanded(child: ProductButtonWidget())
+              Expanded(
+                  child: ProductButtonWidget(
+                productModel: productModel,
+              ))
             ],
           ),
           const SizedBox(height: 20),
