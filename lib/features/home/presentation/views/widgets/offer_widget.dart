@@ -18,7 +18,10 @@ class OfferWidget extends StatelessWidget {
     var discount = percent.length >= 3 ? percent.substring(0, 3) : percent;
 
     return GestureDetector(
-      onTap: () => GoRouter.of(context).pushNamed(Routes.kOffers),
+      onTap: () => GoRouter.of(context).push(
+        Routes.kProduct,
+        extra: productModel,
+      ),
       child: Container(
         padding: const EdgeInsets.only(left: 25, top: 25, bottom: 25),
         height: 136,

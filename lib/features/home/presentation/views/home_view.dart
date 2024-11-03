@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:store/core/utils/routes.dart';
+import 'package:store/features/home/data/repos/home_repo_impl.dart';
+import 'package:store/features/home/presentation/view%20models/cubits/product_cubit.dart';
 import 'package:store/features/home/presentation/views/widgets/brand_gridview_widget.dart';
 import 'package:store/features/home/presentation/views/widgets/home_appbar_widget.dart';
 import 'package:store/features/home/presentation/views/widgets/home_offers_widget.dart';
@@ -30,7 +33,15 @@ class HomeView extends StatelessWidget {
                         onTap: () => GoRouter.of(context).push(Routes.kSearch),
                       ),
                       const SizedBox(height: 4),
-                      const HomeOffersWidget(),
+                      BlocProvider<ProductCubit>(
+                        create: (context) => ProductCubit(HomeRepoImpl())
+                          ..getProducts(
+                            category: 'Jordan',
+                            limit: 20,
+                            filter: 'LOWEST_PRICE',
+                          ),
+                        child: const HomeOffersWidget(),
+                      ),
                       const SizedBox(height: 20),
                       const BrandGridviewWidget(),
                     ],

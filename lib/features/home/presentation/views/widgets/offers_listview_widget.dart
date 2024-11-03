@@ -19,8 +19,8 @@ class _OffersListViewWidgetState extends State<OffersListViewWidget> {
   @override
   void initState() {
     BlocProvider.of<ProductCubit>(context).getProducts(
-      category: 'Nike',
-      limit: 20,
+      category: 'Jordan',
+      limit: 30,
       filter: 'LOWEST_PRICE',
     );
     super.initState();

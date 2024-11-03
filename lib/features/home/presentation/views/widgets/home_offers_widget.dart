@@ -9,23 +9,8 @@ import 'package:store/features/home/presentation/view%20models/cubits/product_st
 import 'package:store/features/home/presentation/views/widgets/home_subtitle_widget.dart';
 import 'package:store/features/home/presentation/views/widgets/offer_widget.dart';
 
-class HomeOffersWidget extends StatefulWidget {
+class HomeOffersWidget extends StatelessWidget {
   const HomeOffersWidget({super.key});
-
-  @override
-  State<HomeOffersWidget> createState() => _HomeOffersWidgetState();
-}
-
-class _HomeOffersWidgetState extends State<HomeOffersWidget> {
-  @override
-  void initState() {
-    BlocProvider.of<ProductCubit>(context).getProducts(
-      category: 'Nike',
-      limit: 20,
-      filter: 'LOWEST_PRICE',
-    );
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +24,7 @@ class _HomeOffersWidgetState extends State<HomeOffersWidget> {
         BlocBuilder<ProductCubit, ProductState>(
           builder: (context, state) {
             if (state is ProductSuccessState) {
-              return OfferWidget(productModel: state.productList.last);
+              return OfferWidget(productModel: state.productList[6]);
             } else if (state is ProductFailureState) {
               return FailureWidget(errMessage: state.errMessage);
             } else if (state is ProductLoadingState) {
