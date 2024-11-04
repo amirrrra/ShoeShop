@@ -29,14 +29,24 @@ class _BrandViewState extends State<BrandView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            const SizedBox(height: 12),
-            SubAppbarWidget(title: widget.category),
-            const SizedBox(height: 12),
-            const Expanded(child: ProductResultWidget()),
+        child: CustomScrollView(
+          physics:const BouncingScrollPhysics(),
+          slivers: [
+            SliverToBoxAdapter(
+              child: Column(
+                children: [
+                  const SizedBox(height: 12),
+                  SubAppbarWidget(title: widget.category),
+                  const SizedBox(height: 12),
+                ],
+              ),
+            ),
+            const SliverFillRemaining(
+              child: ProductResultWidget(),
+            )
           ],
         ),
+       
       ),
     );
   }

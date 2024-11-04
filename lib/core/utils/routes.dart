@@ -35,8 +35,11 @@ class Routes {
       ),
       GoRoute(
         path: kBrand,
-        builder: (context, state) => BrandView(
-          category: state.extra as String,
+        builder: (context, state) => BlocProvider(
+          create: (context) => ProductCubit(HomeRepoImpl()),
+          child: BrandView(
+            category: state.extra as String,
+          ),
         ),
       ),
       GoRoute(
